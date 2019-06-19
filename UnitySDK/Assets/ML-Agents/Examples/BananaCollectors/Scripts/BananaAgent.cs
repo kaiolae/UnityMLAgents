@@ -47,7 +47,7 @@ public class BananaAgent : Agent
         {
             float rayDistance = 50f;
             float[] rayAngles = { 20f, 90f, 160f, 45f, 135f, 70f, 110f };
-            string[] detectableObjects = { "banana", "agent", "wall", "badBanana", "frozenAgent" };
+            string[] detectableObjects = { "banana", "agent", "wall", "badBanana", "frozenAgent", "battery" };
             AddVectorObs(rayPer.Perceive(rayDistance, rayAngles, detectableObjects, 0f, 0f));
             Vector3 localVelocity = transform.InverseTransformDirection(agentRb.velocity);
             AddVectorObs(localVelocity.x);
@@ -102,7 +102,11 @@ public class BananaAgent : Agent
                 var forwardAxis = (int)act[0];
                 var rightAxis = (int)act[1];
                 var rotateAxis = (int)act[2];
-                var shootAxis = (int)act[3];
+                
+
+		var shootAxis = 0;
+		//KOE: Manually setting shoot to 0
+                //var shootAxis = (int)act[3];	
                 
                 switch (forwardAxis)
                 {
@@ -265,6 +269,11 @@ public class BananaAgent : Agent
                 myAcademy.totalScore -= 1;
             }
         }
+	if(collision.gameObject.CompareTag("battery"))
+	{
+            collision.gameObject.GetComponent<BananaLogic>().OnEaten(); //Battery will respawn randomly
+	    AddReward(0.1f);
+	}
     }
 
     public override void AgentOnDone()

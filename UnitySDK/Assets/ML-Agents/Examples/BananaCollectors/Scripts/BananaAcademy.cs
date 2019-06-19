@@ -17,6 +17,7 @@ public class BananaAcademy : Academy
     {
         ClearObjects(GameObject.FindGameObjectsWithTag("banana"));
         ClearObjects(GameObject.FindGameObjectsWithTag("badBanana"));
+	ClearObjects(GameObject.FindGameObjectsWithTag("battery"));
 
         agents = GameObject.FindGameObjectsWithTag("agent");
         listArea = FindObjectsOfType<BananaArea>();

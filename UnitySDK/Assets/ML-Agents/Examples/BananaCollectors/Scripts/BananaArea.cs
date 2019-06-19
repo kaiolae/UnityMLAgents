@@ -7,8 +7,10 @@ public class BananaArea : Area
 {
     public GameObject banana;
     public GameObject badBanana;
+    public GameObject battery;
     public int numBananas;
     public int numBadBananas;
+    public int numBatteries;
     public bool respawnBananas;
     public float range;
     // Use this for initialization
@@ -50,6 +52,7 @@ public class BananaArea : Area
 
         CreateBanana(numBananas, banana);
         CreateBanana(numBadBananas, badBanana);
+        CreateBanana(numBatteries, battery);
     }
 
     public override void ResetArea()
