@@ -927,7 +927,7 @@ MonoBehaviour:
   battery: {fileID: 8484621226736601515, guid: 5c881429976b36819884bba5efe2bdb7, type: 3}
   numBananas: 25
   numBadBananas: 25
-  numBatteries: 5
+  numBatteries: 10
   respawnBananas: 1
   range: 45
 --- !u!1 &1636051624296954
